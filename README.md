@@ -2,18 +2,26 @@
 my reading notes and helpful resources of data science and other fun!
 
 ********************************************
-### MISSING DATA
+MISSING DATA
 
-### USEFULL TIPS IN PRACTICE
+********************************************
+USEFULL TIPS IN PRACTICE
 
-### FEATURE ENGINEERING
+********************************************
+FEATURE ENGINEERING
 
-### DATA PREPROCESSING
+********************************************
+DATA PREPROCESSING
 
-### MACHINE LEARNING
+********************************************
+MACHINE LEARNING
 
-### CLOUD PLATFORM
+********************************************
+CLOUD PLATFORM
 
-### COMPUTATIONAL COST & EFFICIENT
+********************************************
+COMPUTATIONAL COST & EFFICIENT
 
-### STATISTICAL METHODS
+
+********************************************
+STATISTICAL METHODS

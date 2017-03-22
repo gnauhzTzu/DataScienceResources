@@ -7,23 +7,25 @@ MISSING DATA
 ********************************************
 TIPS IN PRACTICE
 
-As far as I know, fread() in data.table has the best performance in importing (big) csv files. It also has a lot convenience features
+As far as I know, `fread()` in `data.table` has the best performance in importing (big) csv files. It also has a lot convenience features:
+
 https://www.r-bloggers.com/efficiency-of-importing-large-csv-files-in-r/
 https://github.com/Rdatatable/data.table/wiki/Convenience-features-of-fread
 
 Certain algorithms in sklearn, XGBoost can only have numerical values as their predictor variables. Hence Label Encoding or One Hot Encoding becomes necessary. But in H2O say Distributed Random Forest, you can use categorical variables in input data frame, H2O will deal with it.
 
-how to properly cross-validate when we have imbalanced data: 
+how to properly **cross-validate** when we have **imbalanced** data: 
  
- # Oversampling the minority class can result in over-fitting problems if we oversample before cross-validating
- # Undersampling could solve the class imbalance issue and increased the sensitivity of our models, but results could be poor because the more imbalanced the dataset the more samples will be discarded when undersampling, therefore throwing away potentially useful information. 
- # I found deep neural network models could deal with the imbalanced dataset better when having at least more than 30 features.
- # Perform feature selection before we go into cross-validation.
- # oversampling must be part of the cross-validation and not done before. 
-    # Inside the cross-validation loop, get a sample out and do not use it for anything related to features selection, oversampling or model building.
-    # Oversample your minority class, without the sample you already excluded.
-    # Use the excluded sample for validation, and the oversampled minority class + the majority class, to create the model.
-    # Repeat n times, where n is your number of samples (if doing leave one participant out cross-validation).
+ * Oversampling the minority class can result in over-fitting problems if we oversample before cross-validating
+ * Undersampling could solve the class imbalance issue and increased the sensitivity of our models, but results could be poor because the more imbalanced the dataset the more samples will be discarded when undersampling, therefore throwing away potentially useful information. 
+ * I found deep neural network models could deal with the imbalanced dataset better when having at least more than 30 features.
+ * Perform feature selection before we go into cross-validation.
+ * oversampling must be part of the cross-validation and not done before. 
+    * Inside the cross-validation loop, get a sample out and do not use it for anything related to features selection, oversampling or model building.
+    * Oversample your minority class, without the sample you already excluded.
+    * Use the excluded sample for validation, and the oversampled minority class + the majority class, to create the model.
+    * Repeat n times, where n is your number of samples (if doing leave one participant out cross-validation).
+
 http://www.marcoaltini.com/blog/dealing-with-imbalanced-data-undersampling-oversampling-and-proper-cross-validation
 
 ********************************************
@@ -31,19 +33,19 @@ FEATURE ENGINEERING
 
 * feature selection: https://people.eecs.berkeley.edu/~jordan/courses/294-fall09/lectures/feature/slides.pdf
 
-* <b>my strategy</b>
+* **my strategy**
     * extract features based on understanding of the data and goal
     * evaluate features by precision rate, coverage area and complexity
     * how to get and store the features
     * clean outliers/weighted sampling/data unbalance sampling
-  * <b>single feature</b>: regularization, discretization, dummy coding
+  * **single feature**: regularization, discretization, dummy coding
     * missing value imputation,logarithm transfer, exponential transfer, Box-Cox
-  * <b>multiple features</b>: PCA, LDA
+  * **multiple features**: PCA, LDA
     * Filter: correlation with the dependent variable. Pearson’s Correlation, LDA, ANOVA, Chi-Square, information gain.
-    * <b>Wrapper Methods</b>: iteration to generate subset of features to train model. then using AUC/MSE, BIC, AIC etc. to decide to add or remove features based on the previous model, such as forward/backward/recursive feature elimination.
+    * **Wrapper Methods**: iteration to generate subset of features to train model. then using AUC/MSE, BIC, AIC etc. to decide to add or remove features based on the previous model, such as forward/backward/recursive feature elimination.
         * full search, heuristic search, stochastic search(GA, SA).
         * usually computationally very expensive. 
-    * <b>Embedded Methods</b>, implemented by algorithms that have their own built-in feature selection methods. LASSO(L1)/RIDGE(L2) regression, regularized trees, random multinomial logit, deep learning.
+    * **Embedded Methods**, implemented by algorithms that have their own built-in feature selection methods. LASSO(L1)/RIDGE(L2) regression, regularized trees, random multinomial logit, deep learning.
    * should be pay attention to the quality and weight of features by monitor the algorithms
 
 ********************************************
@@ -58,10 +60,7 @@ Numerical/graphical summaries, binary, nominal, ordinal, discrete, continuous.
 
 Mean, weighted means, trimmed, geometric, harmonic means. Median, Variance, standard deviation,
 
-
-
-
-This article has useful compare of the pros and cons of several methods dealing <b>imbalanced data</b>. Random Over-Sampling, Cluster-Based Over Sampling,Random Under-Sampling, MSMOTE, Algorithmic Ensemble Techniques, bagging, boosting tree etc.
+This article has useful compare of the pros and cons of several methods dealing **imbalanced data**. Random Over-Sampling, Cluster-Based Over Sampling,Random Under-Sampling, MSMOTE, Algorithmic Ensemble Techniques, bagging, boosting tree etc.
 handle imbalanced classification data: https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2650724464&idx=1&sn=1f34358862bacfb4c7ea17c864d8c44d
 
 Basic practical code and evaluation metrics when dealing with imbalanced data
@@ -70,7 +69,7 @@ https://www.analyticsvidhya.com/blog/2016/03/practical-guide-deal-imbalanced-cla
 Setting AUC Threshold when use xgboost to deal with imbalanced dataset:
 https://www.analyticsvidhya.com/blog/2016/09/this-machine-learning-project-on-imbalanced-data-can-add-value-to-your-resume/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+AnalyticsVidhya+%28Analytics+Vidhya%29
 
-<b>Sparse Matrix Storage Formats</b>: DOK, COO, CSR, CSC etc.
+**Sparse Matrix Storage Formats**: DOK, COO, CSR, CSC etc.
 these format are all available in `scipy.sparse`
 http://www.scipy-lectures.org/advanced/scipy_sparse/storage_schemes.html
 http://flyxu.github.io/2016/05/30/2016-5-30/

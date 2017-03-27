@@ -41,11 +41,11 @@ FEATURE ENGINEERING
   * **single feature**: regularization, discretization, dummy coding
     * missing value imputation,logarithm transfer, exponential transfer, Box-Cox
   * **multiple features**: PCA, LDA
-    * Filter: correlation with the dependent variable. Pearson’s Correlation, LDA, ANOVA, Chi-Square, information gain.
-    * **Wrapper Methods**: iteration to generate subset of features to train model. then using AUC/MSE, BIC, AIC etc. to decide to add or remove features based on the previous model, such as forward/backward/recursive feature elimination.
+    * **filter**: correlation with the dependent variable. Pearson’s Correlation, LDA, ANOVA, Chi-Square, information gain.
+    * **wrapper methods**: iteration to generate subset of features to train model. then using AUC/MSE, BIC, AIC etc. to decide to add or remove features based on the previous model, such as forward/backward/recursive feature elimination.
         * full search, heuristic search, stochastic search(GA, SA).
         * usually computationally very expensive. 
-    * **Embedded Methods**, implemented by algorithms that have their own built-in feature selection methods. LASSO(L1)/RIDGE(L2) regression, regularized trees, random multinomial logit, deep learning.
+    * **embedded methods**, implemented by algorithms that have their own built-in feature selection methods. LASSO(L1)/RIDGE(L2) regression, regularized trees, random multinomial logit, deep learning.
    * should be pay attention to the quality and weight of features by monitor the algorithms
 
 ********************************************
@@ -113,5 +113,14 @@ Languages
 R basic tutorial https://www.coursera.org/learn/r-programming
 My code for R basic, data preprocess, data wrangling:
 R machine learning package library https://cran.r-project.org/web/views/MachineLearning.html
+As far as I know, fread() in data.table is the most fastest way to import (big) csv files. It also has a lot convenience features
+https://www.r-bloggers.com/efficiency-of-importing-large-csv-files-in-r/
+https://github.com/Rdatatable/data.table/wiki/Convenience-features-of-fread
 
 
+Find same query, filter, sample, sort, group, slice, aggregate, group by, match, data format transfer methods in R and in pandas:  
+http://pandas.pydata.org/pandas-docs/stable/comparison_with_r.html
+
+*****************
+basic text mining method
+https://www.analyticsvidhya.com/blog/2015/12/kaggle-solution-cooking-text-mining-competition/

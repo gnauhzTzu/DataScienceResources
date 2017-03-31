@@ -12,6 +12,10 @@ As far as I know, `fread()` in `data.table` has the best performance in importin
 https://www.r-bloggers.com/efficiency-of-importing-large-csv-files-in-r/
 https://github.com/Rdatatable/data.table/wiki/Convenience-features-of-fread
 
+Most of the versions update (say 3.10.0.8 and 3.10.0.10) in h2o will break the existing model, which means, the model trained on old versions cannot be imported by new versions of h2o.
+tips on h2o troubleshooting
+https://support.h2o.ai/support/solutions/articles/17000012114-h2o-troubleshooting-tips
+
 Certain algorithms in sklearn, XGBoost can only have numerical values as their predictor variables. Hence Label Encoding or One Hot Encoding becomes necessary. But in H2O say Distributed Random Forest, you can use categorical variables in input data frame, H2O will deal with it.
 
 how to properly **cross-validate** when we have **imbalanced** data: 
@@ -78,6 +82,15 @@ http://flyxu.github.io/2016/05/30/2016-5-30/
 ********************************************
 MACHINE LEARNING
 
+
+
+********************************************
+Text Mining
+
+Extracted the top words of images using TF-IDF:
+https://openvisconf.com/2016/#videos
+
+
 ********************************************
 HADOOP DISTRIBUTED FILE SYSTEM (HDFS)
 MapReduce, Pig, Hive, Hbase pseudocode and example https://www.ee.columbia.edu/~cylin/course/bigdata/EECS6893-BigDataAnalytics-Lecture2.pdf
@@ -110,16 +123,20 @@ Learning Perceptual Kernels for Visualization Design: https://github.com/uwdata/
 ****************
 Languages
 
-R basic tutorial https://www.coursera.org/learn/r-programming
+Fastest way to check if any NaN in data frame is `df.isnull().values.any()`
+`df.isnull().values.sum()` is a bit slower, but show the number of NaNs.
+http://stackoverflow.com/questions/29530232/python-pandas-check-if-any-value-is-nan-in-dataframe
+
+Find same query, filter, sample, sort, group, slice, aggregate, group by, match, data format transfer methods in R and in pandas:  
+http://pandas.pydata.org/pandas-docs/stable/comparison_with_r.html
+
+Almost all R basic knowledge; https://www.coursera.org/learn/r-programming
 My code for R basic, data preprocess, data wrangling:
 R machine learning package library https://cran.r-project.org/web/views/MachineLearning.html
 As far as I know, fread() in data.table is the most fastest way to import (big) csv files. It also has a lot convenience features
 https://www.r-bloggers.com/efficiency-of-importing-large-csv-files-in-r/
 https://github.com/Rdatatable/data.table/wiki/Convenience-features-of-fread
 
-
-Find same query, filter, sample, sort, group, slice, aggregate, group by, match, data format transfer methods in R and in pandas:  
-http://pandas.pydata.org/pandas-docs/stable/comparison_with_r.html
 
 *****************
 basic text mining method

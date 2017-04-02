@@ -137,6 +137,8 @@ As far as I know, fread() in data.table is the most fastest way to import (big) 
 https://www.r-bloggers.com/efficiency-of-importing-large-csv-files-in-r/
 https://github.com/Rdatatable/data.table/wiki/Convenience-features-of-fread
 
+Chained assignment should be avoid in pandas data frame selecting and indexing:
+http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
 
 *****************
 basic text mining method

@@ -32,6 +32,32 @@ how to properly **cross-validate** when we have **imbalanced** data:
 
 http://www.marcoaltini.com/blog/dealing-with-imbalanced-data-undersampling-oversampling-and-proper-cross-validation
 
+**Sparse Matrix**
+
+https://projects.ncsu.edu/hpc/Courses/6sparse.html
+http://math.ucla.edu/~dakuang/cse6040/lectures/6040_lecture8.pdf
+- Advantages of the CSR format
+    - efficient arithmetic operations CSR + CSR, CSR * CSR, etc.
+    - efficient row slicing
+    - fast matrix vector products
+- Disadvantages of the CSR format
+    - slow column slicing operations (consider CSC)
+    - changes to the sparsity structure are expensive (consider LIL or DOK)
+
+Storage efficient of COO,CSR,CSC,DIA,ELL,HYB etc.
+http://www.cnblogs.com/xbinworld/p/4273506.html
+
+
+when it's **not easy/expensive to know the real dimension of the feature vector**. For example, the **bag-of-word** representation in document classification problem requires scanning entire dataset to know how many words we have, i.e. the dimension of the feature vector. We can use [Feature hashing](https://en.wikipedia.org/wiki/Feature_hashing): 
+
+http://amunategui.github.io/feature-hashing/
+http://scikit-learn.org/stable/auto_examples/text/hashing_vs_dict_vectorizer.html#sphx-glr-auto-examples-text-hashing-vs-dict-vectorizer-py
+
+
+
+
+Encoding methods of categorical variables: Ordinal, One-Hot, Binary, Helmert Contrast, Sum Contrast, Polynomial Contrast, Backward Difference Contrast, Hashing, BaseN: https://github.com/scikit-learn-contrib/categorical-encoding
+
 ********************************************
 FEATURE ENGINEERING
 

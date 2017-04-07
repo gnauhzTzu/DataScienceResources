@@ -166,6 +166,63 @@ https://github.com/Rdatatable/data.table/wiki/Convenience-features-of-fread
 Chained assignment should be avoid in pandas data frame selecting and indexing:
 http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
 
+****************
+Spark
+
+- Use Spark Transformations and Actions wherever possible (Search DataFrame reference API)
+- Never use collect() in production, instead use take(n) 
+- cache() DataFrames that you reuse a lot
+
+********************************************
+RECOMMENDATION SYSTEM
+
+Recommendations should:
+- Simultaneously ease and encourage rather than replace social processes, should make it easy to participate while leaving in hooks for people to pursue more personal relationships if they wish
+- Be for sets of people not just individuals...multi-person recommending is often important, for example, when two or more people want to choose a video to watch together
+- Be from people not a black box machine or so-called "agent"
+- Tell how much confidence to place in them, in other words they should include indications of how accurate they are
+
+-----
+Overview of recommendation system: 
+Key problem: matrix is sparse as most people have not rated most items
+Approaches:
+
+**Hybrid**
+
+
+**Content Based**
+Main idea: Recommend items to customer **C** similar to previous items rated highly by **C**
+
+Limitations:
+- Finding the appropriate features
+e.g., images, movies, music
+- Overspecialization
+ Never recommends items outside user’s content profile and people might have multiple interests
+- Recommendations for new users
+
+**Collaborative Filtering** ([Breese et al, UAI98](https://www.microsoft.com/en-us/research/publication/empirical-analysis-of-predictive-algorithms-for-collaborative-filtering/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fum%2Fpeople%2Fheckerman%2Fbhk98uai.pdf))
+Main idea: First Consider user **C**, Find set **D** of other users whose ratings are “similar” to **C**’s ratings. Estimate user’s ratings based on ratings of users in **D**.
+
+ - CF Based on vector similarity methods:
+    - K-nearest neighbor
+    - Pearson correlation coefficient 
+    - Cosine distance 
+    - Cosine with "inverse user frequency"
+ - Evaluation:
+    - 
+
+**Memory-based (user-based) CF**
+**Model-based (item-based) CF**
+
+
+
+https://lagunita.stanford.edu/courses/course-v1:ComputerScience+MMDS+SelfPaced/info
+http://web.stanford.edu/class/cs345a/handouts.html
+http://infolab.stanford.edu/~ullman/mmds/ch9.pdf
+
+
+
+
 *****************
 basic text mining method
 https://www.analyticsvidhya.com/blog/2015/12/kaggle-solution-cooking-text-mining-competition/

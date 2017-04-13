@@ -173,34 +173,35 @@ Spark
 - Never use collect() in production, instead use take(n) 
 - cache() DataFrames that you reuse a lot
 
+The ultimate place of mine to collect all the nuts and bolts of using Spark, including useful tricks and tips
+https://www.gitbook.com/book/jaceklaskowski/mastering-apache-spark/details
+https://github.com/jaceklaskowski/spark-workshop
+
 ********************************************
 RECOMMENDATION SYSTEM
 
 Recommendations should:
+
 - Simultaneously ease and encourage rather than replace social processes, should make it easy to participate while leaving in hooks for people to pursue more personal relationships if they wish
 - Be for sets of people not just individuals...multi-person recommending is often important, for example, when two or more people want to choose a video to watch together
 - Be from people not a black box machine or so-called "agent"
 - Tell how much confidence to place in them, in other words they should include indications of how accurate they are
 
------
-Overview of recommendation system: 
-Key problem: matrix is sparse as most people have not rated most items
-Approaches:
-
-**Hybrid**
-
+Overview of recommendation algorithms: 
 
 **Content Based**
+
 Main idea: Recommend items to customer **C** similar to previous items rated highly by **C**
 
-Limitations:
-- Finding the appropriate features
+Cons:
+- Finding the appropriate features to create the item profile.
 e.g., images, movies, music
 - Overspecialization
  Never recommends items outside user’s content profile and people might have multiple interests
 - Recommendations for new users
 
-**Collaborative Filtering** ([Breese et al, UAI98](https://www.microsoft.com/en-us/research/publication/empirical-analysis-of-predictive-algorithms-for-collaborative-filtering/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fum%2Fpeople%2Fheckerman%2Fbhk98uai.pdf))
+**Memory-based (user-based) Collaborative Filtering** ([Breese et al, UAI98](https://www.microsoft.com/en-us/research/publication/empirical-analysis-of-predictive-algorithms-for-collaborative-filtering/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fum%2Fpeople%2Fheckerman%2Fbhk98uai.pdf))
+
 Main idea: First Consider user **C**, Find set **D** of other users whose ratings are “similar” to **C**’s ratings. Estimate user’s ratings based on ratings of users in **D**.
 
  - CF Based on vector similarity methods:
@@ -209,11 +210,39 @@ Main idea: First Consider user **C**, Find set **D** of other users whose rating
     - Cosine distance 
     - Cosine with "inverse user frequency"
  - Evaluation:
-    - 
+    - Root-mean-square error (RMSE)
+        - RMSE might penalize a method that does well for high ratings and badly for others, but in practice, we care only to predict high ratings.
+    - Coverage: Number of items/users for which system can make predictions
+    - Precision: Accuracy of predictions
+    - Receiver operating characteristic (ROC): Tradeoff curve between false positives and false negatives
 
-**Memory-based (user-based) CF**
+Pros: Works for any kind of item, No feature selection needed
+Cons: 
+
+- Cold Start: Need enough users in the system to find a match   
+- The user/rating matrix is sparse
+- So expensive to finding k most similar customers, O(|U|) sparse matrix U.
+- New items/users?
+- Popularity  bias: Tends to recommend popular items
+- Can use clustering, partitioning as alternatives, but quality degrades
+
+
 **Model-based (item-based) CF**
 
+Main idea: For item **S**, find other similar items, estimate rating for item based on ratings for similar items. Can use same similarity metrics and
+prediction functions as in user-based model
+
+In practice, it has been observed that item-item often works better than user-user, because similarity between items is more static, the similarity between users can change if only a few ratings are changing (the overlap
+between users profiles is small)
+
+**Hybrid**
+
+- Implement two or more different recommenders and combine predictions, perhaps using a linear model
+- Add content-based methods to collaborative filtering
+    - item profiles for new item problem
+    - demographics to deal with new user problem
+
+Key problem: matrix is sparse as most people have not rated most items
 
 
 https://lagunita.stanford.edu/courses/course-v1:ComputerScience+MMDS+SelfPaced/info

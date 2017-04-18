@@ -7,6 +7,8 @@ MISSING DATA
 ********************************************
 TIPS IN PRACTICE
 
+a single node H20 server with 12GB RAM can parse and train around 24 GB csv file, while R in the same machine can't handle the file with same size. 
+
 As far as I know, `fread()` in `data.table` has the best performance in importing (big) csv files. It also has a lot convenience features:
 
 https://www.r-bloggers.com/efficiency-of-importing-large-csv-files-in-r/
@@ -121,6 +123,14 @@ https://openvisconf.com/2016/#videos
 HADOOP DISTRIBUTED FILE SYSTEM (HDFS)
 MapReduce, Pig, Hive, Hbase pseudocode and example https://www.ee.columbia.edu/~cylin/course/bigdata/EECS6893-BigDataAnalytics-Lecture2.pdf
 
+Debug hadoop map reduce work locally on Eclipse before submitting the jar over to claster
+You cannot debug your mappers and reducer in a distributed mode, you can only debug them in local mode
+http://let-them-c.blogspot.com/2011/07/running-hadoop-locally-on-eclipse.html
+
+Tutorial on how to debugging MapReduce Programs With MRUnit
+http://blog.cloudera.com/blog/2009/07/debugging-mapreduce-programs-with-mrunit/
+
+
 ********************************************
 COMPUTATIONAL COST & EFFICIENT
 
@@ -176,6 +186,21 @@ Spark
 The ultimate place of mine to collect all the nuts and bolts of using Spark, including useful tricks and tips
 https://www.gitbook.com/book/jaceklaskowski/mastering-apache-spark/details
 https://github.com/jaceklaskowski/spark-workshop
+
+- PyPy is astonishingly faster than CPython (about 5x) as its Just-in-Time compiler.
+- PySpark can now run on PyPy to speed up the Python code execution.
+- In Python Spark, your logic will be split between the Scala/JVM implementation of the core logic and the Python implementation of your logic and parts of the PySpark API
+https://databricks.com/blog/2015/04/24/recent-performance-improvements-in-apache-spark-sql-python-dataframes-and-more.html
+
+Compare the running time of Scala, Scala SQL, Python and Python SQL with load, join, map, reduce, sort
+http://emptypipes.org/2015/01/17/python-vs-scala-vs-spark/
+
+DataFrame Operations in PySpark. Creating DataFrame from RDD/CSV. Pandas vs PySpark DataFrame
+https://www.analyticsvidhya.com/blog/2016/10/spark-dataframe-and-operations/
+
+Incremental shortest distance algorithm for Spark:
+https://blog.insightdatascience.com/computing-shortest-distances-incrementally-with-spark-1a280064a0b9
+
 
 ********************************************
 RECOMMENDATION SYSTEM

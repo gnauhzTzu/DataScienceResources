@@ -123,6 +123,10 @@ https://openvisconf.com/2016/#videos
 HADOOP DISTRIBUTED FILE SYSTEM (HDFS)
 MapReduce, Pig, Hive, Hbase pseudocode and example https://www.ee.columbia.edu/~cylin/course/bigdata/EECS6893-BigDataAnalytics-Lecture2.pdf
 
+flatMap vs flatMapValues vs mapPartitions vs map with examples
+http://homepage.cs.latrobe.edu.au/zhe/ZhenHeSparkRDDAPIExamples.html
+https://www.zybuluo.com/jewes/note/35032
+
 Debug hadoop map reduce work locally on Eclipse before submitting the jar over to claster
 You cannot debug your mappers and reducer in a distributed mode, you can only debug them in local mode
 http://let-them-c.blogspot.com/2011/07/running-hadoop-locally-on-eclipse.html

@@ -184,6 +184,10 @@ Spark
 - Never use collect() in production, instead use take(n) 
 - cache() DataFrames that you reuse a lot
 
+Recovering from failures with checkpointing in spark streaming.
+Managing streaming queries and monitoring streaming queries
+https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html
+
 The ultimate place of mine to collect all the nuts and bolts of using Spark, including useful tricks and tips
 https://www.gitbook.com/book/jaceklaskowski/mastering-apache-spark/details
 https://github.com/jaceklaskowski/spark-workshop

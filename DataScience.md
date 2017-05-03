@@ -4,7 +4,7 @@ MISSING DATA
 ********************************************
 TIPS IN PRACTICE
 
-a single node H20 server with 12GB RAM can parse and train around 24 GB csv file, while R in the same machine can't handle the file with same size. 
+A single node H20 server with 12GB RAM can eat and train around 24 GB csv file, while R can't handle the same size file with the same RAM. 
 
 As far as I know, `fread()` in `data.table` has the best performance in importing (big) csv files. It also has a lot convenience features:
 
@@ -30,6 +30,20 @@ how to properly **cross-validate** when we have **imbalanced** data:
     * Repeat n times, where n is your number of samples (if doing leave one participant out cross-validation).
 
 http://www.marcoaltini.com/blog/dealing-with-imbalanced-data-undersampling-oversampling-and-proper-cross-validation
+
+Ensemble methods:
+
+* Voting ensemble
+* Averaging ensemble those models having small Pearson correlation prediction
+* Weighted majority vote
+* Rank averaging and Historical rank averaging
+* Blending
+* Stacking
+* Quadratic linear stacking of models
+https://github.com/MLWave/Kaggle-Ensemble-Guide
+
+Simple yet effective methods to build image classifier in keras
+https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html
 
 **Sparse Matrix**
 
